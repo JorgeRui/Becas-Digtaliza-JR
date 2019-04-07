@@ -47,27 +47,32 @@ def realizarOperacion(opcion, numero_a, numero_b):
     return resultado[opcion]
 
 if __name__ == "__main__":
-    #Aqui empezamos el programa
-    continuar = True
-    opciones = {
-        0: 'SUMAR',
-        1: 'RESTAR',
-        2: 'MULTIPLICACION',
-        3: 'DIVISION',
-        4: 'EXPONENCIAR'
-    }
-    while continuar:
-        configuracionInicial()
-        opcion_escogida = int(input("Eliga la opción (en numero): "))
-        if isOpcionValida(opcion_escogida):
-            opcion = opciones[opcion_escogida]
-            numero_a = float(input("Introduzca el primer numero: "))
-            numero_b = float(input("Introduzca el segundo numero: "))
-            resultado = realizarOperacion(opcion, numero_a, numero_b)
-            print(f"El resultado de la operación {opcion} ha sido de: {resultado}")
-        else:
-            print("Opcion no válida, vuelva a intentarlo")
-        desea_continuar = int(input("¿Desea continuar? 0: NO: "))
-        if desea_continuar == 0:
-            continuar = False
+    try:
+        #Aqui empezamos el programa
+        continuar = True
+        opciones = {
+            0: 'SUMAR',
+            1: 'RESTAR',
+            2: 'MULTIPLICACION',
+            3: 'DIVISION',
+            4: 'EXPONENCIAR'
+        }
+        while continuar:
+            configuracionInicial()
+            opcion_escogida = int(input("Eliga la opción (en numero): "))
+            if isOpcionValida(opcion_escogida):
+                opcion = opciones[opcion_escogida]
+                numero_a = float(input("Introduzca el primer numero: "))
+                numero_b = float(input("Introduzca el segundo numero: "))
+                resultado = realizarOperacion(opcion, numero_a, numero_b)
+                print(f"El resultado de la operación {opcion} ha sido de: {resultado}")
+            else:
+                print("Opcion no válida, vuelva a intentarlo")
+            desea_continuar = int(input("¿Desea continuar? 0: NO: "))
+            if desea_continuar == 0:
+                continuar = False
+    except Exception as error:
+        print("Ha ocurrido un error en el main...")
+        print(f"{error}")
+
             
